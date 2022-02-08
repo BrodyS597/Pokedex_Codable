@@ -15,6 +15,8 @@
 		418FA68627B236D400ABEC96 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418FA68527B236D400ABEC96 /* Pokemon.swift */; };
 		418FA68C27B2375B00ABEC96 /* NetworkingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418FA68B27B2375B00ABEC96 /* NetworkingController.swift */; };
 		418FA68E27B237A100ABEC96 /* PokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418FA68D27B237A100ABEC96 /* PokemonViewController.swift */; };
+		6DF2068C27B2DAA9003B257F /* PokeDexTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF2068B27B2DAA9003B257F /* PokeDexTableViewController.swift */; };
+		6DF2068E27B2DC4A003B257F /* pokeDexTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF2068D27B2DC4A003B257F /* pokeDexTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		418FA68527B236D400ABEC96 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		418FA68B27B2375B00ABEC96 /* NetworkingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingController.swift; sourceTree = "<group>"; };
 		418FA68D27B237A100ABEC96 /* PokemonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonViewController.swift; sourceTree = "<group>"; };
+		6DF2068B27B2DAA9003B257F /* PokeDexTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeDexTableViewController.swift; sourceTree = "<group>"; };
+		6DF2068D27B2DC4A003B257F /* pokeDexTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pokeDexTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				418FA68D27B237A100ABEC96 /* PokemonViewController.swift */,
+				6DF2068B27B2DAA9003B257F /* PokeDexTableViewController.swift */,
+				6DF2068D27B2DC4A003B257F /* pokeDexTableViewCell.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -186,7 +192,9 @@
 			files = (
 				418FA67027B2349C00ABEC96 /* AppDelegate.swift in Sources */,
 				418FA68E27B237A100ABEC96 /* PokemonViewController.swift in Sources */,
+				6DF2068C27B2DAA9003B257F /* PokeDexTableViewController.swift in Sources */,
 				418FA68C27B2375B00ABEC96 /* NetworkingController.swift in Sources */,
+				6DF2068E27B2DC4A003B257F /* pokeDexTableViewCell.swift in Sources */,
 				418FA67227B2349C00ABEC96 /* SceneDelegate.swift in Sources */,
 				418FA68627B236D400ABEC96 /* Pokemon.swift in Sources */,
 			);
@@ -345,6 +353,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -373,6 +382,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
