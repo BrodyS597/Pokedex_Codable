@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iBN-5D-Vng">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HaJ-sS-NjY">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
@@ -8,6 +8,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="s1Z-qd-Nte">
+            <objects>
+                <navigationController id="HaJ-sS-NjY" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="poj-yx-RIV">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="iBN-5D-Vng" kind="relationship" relationship="rootViewController" id="LOE-DL-iDu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fzL-vh-K6y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="167" y="92"/>
+        </scene>
         <!--Pokemon View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -16,21 +32,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="What Pokemon are you looking for?" translatesAutoresizingMaskIntoConstraints="NO" id="JPy-W5-i9E">
-                                <rect key="frame" x="0.0" y="44" width="414" height="51"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="2To-hv-sNb">
-                                <rect key="frame" x="8" y="185" width="398" height="260"/>
+                                <rect key="frame" x="8" y="189" width="398" height="260"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="260" id="8UT-Fs-HHa"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gjS-zX-eFI">
-                                <rect key="frame" x="87" y="251" width="240" height="128"/>
+                                <rect key="frame" x="87" y="255" width="240" height="128"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="t7g-Ix-0tY">
-                                <rect key="frame" x="8" y="475" width="398" height="379"/>
+                                <rect key="frame" x="8" y="479" width="398" height="375"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="moveCell" textLabel="oPM-Md-wka" style="IBUITableViewCellStyleDefault" id="0LX-44-cNe">
@@ -53,7 +65,7 @@
                                 </prototypes>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hjN-Al-dwP">
-                                <rect key="frame" x="32.5" y="114" width="349" height="50"/>
+                                <rect key="frame" x="32.5" y="118" width="349" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBN-ng-myE">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -75,16 +87,13 @@
                         <constraints>
                             <constraint firstItem="2To-hv-sNb" firstAttribute="top" secondItem="hjN-Al-dwP" secondAttribute="bottom" constant="21" id="2Dm-Of-m3p"/>
                             <constraint firstItem="ivP-z4-fsO" firstAttribute="trailing" secondItem="2To-hv-sNb" secondAttribute="trailing" constant="8" id="7uN-DY-d9k"/>
-                            <constraint firstItem="hjN-Al-dwP" firstAttribute="top" secondItem="JPy-W5-i9E" secondAttribute="bottom" constant="19" id="9pA-gl-4cz"/>
                             <constraint firstItem="gjS-zX-eFI" firstAttribute="height" secondItem="2To-hv-sNb" secondAttribute="height" multiplier="0.492308" id="AIl-3r-lYx"/>
-                            <constraint firstItem="JPy-W5-i9E" firstAttribute="trailing" secondItem="ivP-z4-fsO" secondAttribute="trailing" id="LQo-7s-i2k"/>
+                            <constraint firstItem="hjN-Al-dwP" firstAttribute="top" secondItem="ivP-z4-fsO" secondAttribute="top" constant="30" id="JDI-dF-UG9"/>
                             <constraint firstItem="hjN-Al-dwP" firstAttribute="centerX" secondItem="2To-hv-sNb" secondAttribute="centerX" id="OhI-HQ-7cP"/>
                             <constraint firstItem="gjS-zX-eFI" firstAttribute="centerY" secondItem="2To-hv-sNb" secondAttribute="centerY" id="Umv-ic-GcW"/>
                             <constraint firstItem="gjS-zX-eFI" firstAttribute="centerX" secondItem="2To-hv-sNb" secondAttribute="centerX" id="V1l-lY-wBT"/>
                             <constraint firstItem="t7g-Ix-0tY" firstAttribute="top" secondItem="2To-hv-sNb" secondAttribute="bottom" constant="30" id="XeH-0W-DR3"/>
                             <constraint firstItem="t7g-Ix-0tY" firstAttribute="leading" secondItem="ivP-z4-fsO" secondAttribute="leading" constant="8" id="YQI-nI-CXP"/>
-                            <constraint firstItem="JPy-W5-i9E" firstAttribute="leading" secondItem="ivP-z4-fsO" secondAttribute="leading" id="Z4S-BX-Gza"/>
-                            <constraint firstItem="JPy-W5-i9E" firstAttribute="top" secondItem="ivP-z4-fsO" secondAttribute="top" id="am8-bg-Ppw"/>
                             <constraint firstItem="gjS-zX-eFI" firstAttribute="width" secondItem="2To-hv-sNb" secondAttribute="width" multiplier="0.603015" id="g4E-LE-IWY"/>
                             <constraint firstItem="2To-hv-sNb" firstAttribute="leading" secondItem="ivP-z4-fsO" secondAttribute="leading" constant="8" id="kvu-js-iEK"/>
                             <constraint firstItem="ivP-z4-fsO" firstAttribute="trailing" secondItem="t7g-Ix-0tY" secondAttribute="trailing" constant="8" id="msY-Sy-3SU"/>
@@ -92,17 +101,17 @@
                             <constraint firstItem="ivP-z4-fsO" firstAttribute="bottom" secondItem="t7g-Ix-0tY" secondAttribute="bottom" constant="8" id="z6W-6V-wgn"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="5Kh-HN-uj5"/>
                     <connections>
                         <outlet property="pokemonIDLabel" destination="OBN-ng-myE" id="cUM-Lh-Uzt"/>
                         <outlet property="pokemonMovesTableView" destination="t7g-Ix-0tY" id="E93-mx-o4v"/>
                         <outlet property="pokemonNameLabel" destination="FAZ-Wp-D7f" id="Uwl-Wv-YLA"/>
-                        <outlet property="pokemonSearchBar" destination="JPy-W5-i9E" id="asA-OP-Qci"/>
                         <outlet property="pokemonSpriteImageView" destination="gjS-zX-eFI" id="WtX-lk-df8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1774" y="92"/>
+            <point key="canvasLocation" x="1707" y="92"/>
         </scene>
         <!--Poke Dex Table View Controller-->
         <scene sceneID="FFy-xs-luh">
@@ -159,6 +168,7 @@
                                     <outlet property="pokemonIDLabel" destination="4Du-Ln-Df5" id="4kW-eY-KuU"/>
                                     <outlet property="pokemonNameLabel" destination="1du-pD-w6v" id="PnU-l2-8XX"/>
                                     <outlet property="pokemonSpriteImageView" destination="vpE-gZ-nuq" id="Yy4-DY-2pc"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="toDetailVC" id="awN-7R-N46"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -167,10 +177,11 @@
                             <outlet property="delegate" destination="iBN-5D-Vng" id="j8d-Qe-AiF"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="Z9Z-Rr-axv"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Crg-GM-Hwk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="940.57971014492762" y="91.741071428571431"/>
+            <point key="canvasLocation" x="984" y="92"/>
         </scene>
     </scenes>
     <resources>
