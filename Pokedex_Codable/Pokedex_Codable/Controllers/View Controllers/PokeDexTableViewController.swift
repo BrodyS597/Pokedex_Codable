@@ -15,7 +15,7 @@ class PokeDexTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NetworkingController.fetchPokedex { result in
+        NetworkingController.fetchPokedex(with: NetworkingController.initialURL!) { result in
             switch result {
             case .success(let pokedex):
                 self.pokedexResults = pokedex.results
@@ -39,8 +39,9 @@ class PokeDexTableViewController: UITableViewController {
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
          guard let cell = tableView.dequeueReusableCell(withIdentifier: "pokedexCell", for: indexPath) as? pokeDexTableViewCell else { return UITableViewCell() }
      
-     // Configure the cell...
-     
+         let pokemon = pokedexResults[indexPath.row]
+         cell.updateViews(pokemonURLString: pokemon.url)
+         
      return cell
      }
      
