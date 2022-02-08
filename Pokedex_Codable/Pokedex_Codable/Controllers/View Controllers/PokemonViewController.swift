@@ -22,7 +22,7 @@ class PokemonViewController: UIViewController {
 //        pokemonSearchBar.delegate = self
     }
     
-//    var pokemon: Pokemon?
+    var pokemon: Pokemon?
 //
 //    func updateViews(for pokemon: Pokemon) {
 //        NetworkingController.fetchImage(for: pokemon) { image in

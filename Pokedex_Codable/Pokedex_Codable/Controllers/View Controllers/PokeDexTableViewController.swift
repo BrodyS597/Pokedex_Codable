@@ -81,14 +81,31 @@ class PokeDexTableViewController: UITableViewController {
      }
      */
     
-    /*
+    
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destination.
      // Pass the selected object to the new view controller.
+         if segue.identifier == "toDetailVC" {
+             let destination = segue.destination as? PokemonViewController
+             
+             guard let indexPath = tableView.indexPathForSelectedRow else { return }
+             
+             let pokemonToSend = pokedexResults[indexPath.row]
+             NetworkingController.fectchPokemonDetails(with: pokemonToSend.url) { result in
+                 switch result {
+                 case .success(let pokemon):
+                     destination.pokemon = pokemon
+                     DispatchQueue.main.async {
+                         self.tableView.reloadData()
+                     }
+                     
+                 case .failure(let error):
+                     print("There was an error!, \(error.errorDescription!)")
+                 }
+             }
+         }
      }
-     */
-    
 }

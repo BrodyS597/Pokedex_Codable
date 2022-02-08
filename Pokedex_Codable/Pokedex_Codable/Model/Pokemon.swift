@@ -9,6 +9,8 @@ import Foundation
 
 struct Pokedex: Decodable {
     let results: [PokedexResult]
+    let next: String
+    let previous: String? 
 }
 
 struct PokedexResult: Decodable {
@@ -20,6 +22,7 @@ struct PokemonData: Decodable {
     let name: String
     let id: Int
     let sprites: SpritePaths
+    let moves: [MovesDictionary]
 }
 
 struct SpritePaths: Decodable {
@@ -42,5 +45,12 @@ struct SpritePaths: Decodable {
     let frontFemale: String?
     let frontShiny: String
     let frontShinyFemale: String?
+}
 
+struct MovesDictionary: Decodable {
+    let move: Move
+}
+
+struct Move: Decodable {
+    let name: String
 }
