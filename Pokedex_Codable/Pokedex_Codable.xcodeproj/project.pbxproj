@@ -17,6 +17,7 @@
 		418FA68E27B237A100ABEC96 /* PokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418FA68D27B237A100ABEC96 /* PokemonViewController.swift */; };
 		6DF2068C27B2DAA9003B257F /* PokeDexTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF2068B27B2DAA9003B257F /* PokeDexTableViewController.swift */; };
 		6DF2068E27B2DC4A003B257F /* pokeDexTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF2068D27B2DC4A003B257F /* pokeDexTableViewCell.swift */; };
+		6DF2069027B2DFC5003B257F /* ResultError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF2068F27B2DFC5003B257F /* ResultError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		418FA68D27B237A100ABEC96 /* PokemonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonViewController.swift; sourceTree = "<group>"; };
 		6DF2068B27B2DAA9003B257F /* PokeDexTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeDexTableViewController.swift; sourceTree = "<group>"; };
 		6DF2068D27B2DC4A003B257F /* pokeDexTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pokeDexTableViewCell.swift; sourceTree = "<group>"; };
+		6DF2068F27B2DFC5003B257F /* ResultError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				418FA68B27B2375B00ABEC96 /* NetworkingController.swift */,
+				6DF2068F27B2DFC5003B257F /* ResultError.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				6DF2068C27B2DAA9003B257F /* PokeDexTableViewController.swift in Sources */,
 				418FA68C27B2375B00ABEC96 /* NetworkingController.swift in Sources */,
 				6DF2068E27B2DC4A003B257F /* pokeDexTableViewCell.swift in Sources */,
+				6DF2069027B2DFC5003B257F /* ResultError.swift in Sources */,
 				418FA67227B2349C00ABEC96 /* SceneDelegate.swift in Sources */,
 				418FA68627B236D400ABEC96 /* Pokemon.swift in Sources */,
 			);
