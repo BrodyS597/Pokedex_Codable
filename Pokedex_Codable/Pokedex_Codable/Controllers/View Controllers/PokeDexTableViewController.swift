@@ -11,6 +11,7 @@ class PokeDexTableViewController: UITableViewController {
     
     //Source of Truth.
     var pokedexResults: [PokedexResult] = []
+    var pokedex: Pokedex?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,7 @@ class PokeDexTableViewController: UITableViewController {
             switch result {
             case .success(let pokedex):
                 self.pokedexResults = pokedex.results
+                self.pokedex = pokedex
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -36,76 +38,60 @@ class PokeDexTableViewController: UITableViewController {
     }
     
     
-     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         guard let cell = tableView.dequeueReusableCell(withIdentifier: "pokedexCell", for: indexPath) as? pokeDexTableViewCell else { return UITableViewCell() }
-     
-         let pokemon = pokedexResults[indexPath.row]
-         cell.updateViews(pokemonURLString: pokemon.url)
-         
-     return cell
-     }
-     
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "pokedexCell", for: indexPath) as? pokeDexTableViewCell else { return UITableViewCell() }
+        
+        let pokemon = pokedexResults[indexPath.row]
+        cell.updateViews(pokemonURLString: pokemon.url)
+        
+        return cell
+    }
     
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        let lastPokedexIndex = pokedexResults.count - 1
+        
+        guard let pokedex = pokedex, let nextURL = URL(string: pokedex.next) else { return }
+        if indexPath.row == lastPokedexIndex {
+            NetworkingController.fetchPokedex(with: nextURL) { result in
+                switch result {
+                case .success(let nextPokedex):
+                    self.pokedex = nextPokedex
+                    self.pokedexResults.append(contentsOf: nextPokedex.results)
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                case .failure(let error):
+                    print("There was an error!", error.errorDescription!)
+                }
+            }
+        }
+    }
     
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
+    // MARK: - Navigation
     
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-         if segue.identifier == "toDetailVC" {
-             let destination = segue.destination as? PokemonViewController
-             
-             guard let indexPath = tableView.indexPathForSelectedRow else { return }
-             
-             let pokemonToSend = pokedexResults[indexPath.row]
-             NetworkingController.fectchPokemonDetails(with: pokemonToSend.url) { result in
-                 switch result {
-                 case .success(let pokemon):
-                     destination.pokemon = pokemon
-                     DispatchQueue.main.async {
-                         self.tableView.reloadData()
-                     }
-                     
-                 case .failure(let error):
-                     print("There was an error!, \(error.errorDescription!)")
-                 }
-             }
-         }
-     }
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "toDetailVC" {
+            if let destination = segue.destination as? PokemonViewController {
+                
+                guard let indexPath = tableView.indexPathForSelectedRow else { return }
+                
+                let pokemonToSend = pokedexResults[indexPath.row]
+                NetworkingController.fectchPokemonDetails(with: pokemonToSend.url) { result in
+                    switch result {
+                    case .success(let pokemon):
+                        DispatchQueue.main.async {
+                            destination.pokemon = pokemon
+                        }
+                    case .failure(let error):
+                        print("There was an error!, \(error.errorDescription!)")
+                    }
+                }
+            }
+        }
+    }
 }
+

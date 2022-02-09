@@ -69,7 +69,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBN-ng-myE">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="6"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -168,7 +168,7 @@
                                     <outlet property="pokemonIDLabel" destination="4Du-Ln-Df5" id="4kW-eY-KuU"/>
                                     <outlet property="pokemonNameLabel" destination="1du-pD-w6v" id="PnU-l2-8XX"/>
                                     <outlet property="pokemonSpriteImageView" destination="vpE-gZ-nuq" id="Yy4-DY-2pc"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="toDetailVC" id="awN-7R-N46"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="toDetailVC" id="rVt-yW-7pa"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
